@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+import { readMe } from '@directus/sdk'
 interface AuthState {
   loggedIn: boolean
   user: object
@@ -23,15 +23,13 @@ export const useAuth = defineStore('auth', {
 
       try {
         // Try to login
-        const response = await $directus.auth.login({
-          email,
-          password,
-        })
-
+        const response = await $directus.login(email, password);
         // If login was successful, fetch the users data
-        const user = await $directus.users.me.read({
-          fields: ['*'],
-        })
+        const user  = await $directus.request(
+          readMe({
+            fields: ['*'],
+          })
+        );
 
         // Update the auth store with the user data
         this.loggedIn = true

@@ -49,6 +49,8 @@
 </template>
 
 <script setup>
+import { readItems } from '@directus/sdk'
+
 const { $directus } = useNuxtApp()
 const { fileUrl } = useFiles()
 
@@ -58,13 +60,14 @@ const loading = ref(false)
 async function fetchPages() {
   loading.value = true
   try {
-    const { data } = await $directus.items('pages').readByQuery({
+    let apiResponse = await $directus.request(readItems('pages', {
       filter: {
-        status: { _eq: 'published' },
+        status: {_eq: 'published'},
       },
       limit: 5,
-    })
-    pages.value = data
+      sort: "-date_created"
+    }));
+    pages.value = apiResponse;
   } catch (e) {
     console.error(e)
   } finally {
