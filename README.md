@@ -1,12 +1,12 @@
 # Nuxt 3 / Directus 17 Starter
 
-Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop internal or client applications faster with this batteries-included starter.
+Opinionated starter template for Nuxt 3 using directus 17 as a backend. Develop internal or client applications faster with this batteries-included starter.
 
 **[View The Demo Site](https://directus-nuxt3-starter.netlify.app/)**
 
 **Features**
 
-- Built-in Directus 9 support to use as your backend, API, headless CMS - whatever your use case
+- Built-in directus 17 support to use as your backend, API, headless CMS - whatever your use case
 - Tailwind CSS with all plugins, HeadlessUI, and Heroicons (Now Using V2) icon support
 - Authentication and user store already configured for you
 - Ready to use common components like modals, dropdowns, and file upload input
@@ -27,7 +27,7 @@ Be sure to keep your eye on [their roadmap](https://nuxt.com/docs/community/road
 
 ---
 
-### Directus 9 support via the Directus SDK
+### directus 17 support via the Directus SDK
 
 If you're not familiar - Directus is an open data platform backed by a SQL database that allows you to quickly created a ready-to-use backend / API to power your application without writing any code.
 
