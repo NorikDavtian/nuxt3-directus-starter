@@ -1,4 +1,4 @@
-# Nuxt 3 / Directus Starter
+# Nuxt 3 / Directus 17 Starter
 
 Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop internal or client applications faster with this batteries-included starter.
 
@@ -13,6 +13,9 @@ Opinionated starter template for Nuxt 3 using Directus 9 as a backend. Develop i
 - Common utilities like relative time and currency formatting so you don't need to include yet another package
 - ESLint and Prettier already configured
 - Dark mode support
+- RSS Feed
+- OG Image
+- Dockerfile
 
 ## Stack
 
@@ -32,16 +35,17 @@ For a smooth experience, the [Directus SDK](https://docs.directus.io/reference/s
 
 ```vue
 <script setup>
-// Get the $directus plugin from Nuxt App composable
-const { $directus } = useNuxtApp()
+  // Get the $directus plugin from Nuxt App composable
+  const { $directus } = useNuxtApp()
 
-// Fetch content from Directus
-const { data } = await $directus.items('your_collection_name').readByQuery({
-      filter: {
-        status: { _eq: 'published' },
-      },
-      limit: 5,
-    })
+  // Fetch content from Directus
+  let apiResponse = await $directus.request(readItems('pages', {
+    filter: {
+      status: {_eq: 'published'},
+    },
+    limit: 5,
+    sort: "-date_created"
+  }));
 </script>
 ```
 
@@ -49,14 +53,14 @@ There is also an included composable for getting the asset urls for your Directu
 
 ```vue
 <template>
-<img :src="fileUrl(file.id)" />
+  <img :src="fileUrl(file.id)" />
 </template>
 <script setup>
-const { fileUrl } = useFiles()
+  const { fileUrl } = useFiles()
 
-const file = {
-	id: 'lkerwfdafaddfgglk3242'
-}
+  const file = {
+    id: 'lkerwfdafaddfgglk3242'
+  }
 </script>
 ```
 
@@ -134,7 +138,7 @@ And there's two include examples that you can use right away.
   </VModal>
 </template>
 <script setup>
-const isModalOpen = ref(false)
+  const isModalOpen = ref(false)
 </script>
 ```
 
@@ -176,7 +180,7 @@ Just import the icon you want in your `<script setup>` and then call the Icon in
 
 ```vue
 <template>
-<CloudArrowUpIcon class="w-5 h-5 text-primary"
+<CloudArrowUpIcon class="w-5 h-5 text-primary"></CloudArrowUpIcon>
 </template>
 
 <script setup>
@@ -207,8 +211,9 @@ If you like destructuring, make sure you use the `storeToRefs` helper from Pinia
 
 ```vue
 <script setup>
-  import {storeToRefs} from 'pinia' import {useAuth} from '~~/store/auth' const
-  auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
+  import {storeToRefs} from 'pinia' 
+  import {useAuth} from '~~/store/auth' 
+  const auth = useAuth() const {(isLoggedIn, user)} = storeToRefs(auth)
 </script>
 ```
 
