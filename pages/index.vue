@@ -67,6 +67,7 @@
         <h1 class="text-4xl font-extrabold dark:text-white">
           {{ title }}
         </h1>
+        <div><img src="/workout/jumprope.gif" alt="Jump"></div>
         <div class="mt-4 text-gray-700 dark:text-gray-200">
           <p>Created by Bryant Gillespie</p>
           <NuxtLink to="https://twitter.com/bryantgillespie" target="_blank"
