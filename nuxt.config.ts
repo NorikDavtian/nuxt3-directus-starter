@@ -22,7 +22,7 @@ export default defineNuxtConfig({
           "'unsafe-inline'", // Fallback value, will be ignored by almost any browser (level 2)
           "'strict-dynamic'", // Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
           "'nonce-{{nonce}}'", // Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
-          "localhost", "example.com", "*.example.com", "*.youtube.com", "*.youtube-nocookie.com", "*.x.com"
+          "localhost", "7mwo.com", "*.7mwo.com", "*.youtube.com", "*.youtube-nocookie.com", "*.x.com"
         ],
         'style-src': [
           "'self'", // Enables loading of stylesheets hosted on same origin
@@ -30,9 +30,9 @@ export default defineNuxtConfig({
           "'unsafe-inline'" // Recommended default for most Nuxt apps
         ],
         'base-uri': ["'none'"],
-        'img-src': ["'self'", "https:", "example.com", "*.example.com", "*.youtube.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
-        'default-src': ["'self'", "http:", "localhost", "*.example.com", "*.youtube.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
-        'frame-src': ["example.com", "*.example.com", "*.youtube.com", "*.youtube-nocookie.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
+        'img-src': ["'self'", "https:", "7mwo.com", "*.7mwo.com", "*.youtube.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
+        'default-src': ["'self'", "http:", "localhost", "*.7mwo.com", "*.youtube.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
+        'frame-src': ["7mwo.com", "*.7mwo.com", "*.youtube.com", "*.youtube-nocookie.com", "*.x.com"], // Add relevant https://... sources if you load images from external sources
         'font-src': ["'self'", "https:", "data:"], //  For increased security, replace by the specific sources for fonts
         'upgrade-insecure-requests': false
       }
